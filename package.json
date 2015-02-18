@@ -1,0 +1,33 @@
+{
+  "name": "img-loaded",
+  "version": "1.0.0",
+  "description": "Run a callback once an image has loaded",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/staygrimm/img-loaded"
+  },
+  "keywords": [
+    "image",
+    "load",
+    "dom",
+    "html",
+    "element"
+  ],
+  "author": "River Grimm <river.grimm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/staygrimm/img-loaded/issues"
+  },
+  "homepage": "https://github.com/staygrimm/img-loaded",
+  "devDependencies": {
+    "duo": "^0.9.4",
+    "duo-test": "^0.3.13"
+  }
+}

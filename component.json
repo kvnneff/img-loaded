@@ -1,0 +1,5 @@
+{
+    "name": "img-loaded",
+    "version": "1.0.0",
+    "description": "Run a callback once an image has loaded"
+}
