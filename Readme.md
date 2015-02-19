@@ -46,8 +46,8 @@ make test
 ## Similar libs ##
 These guys did it first:
 
-[image-loaded](https://github.com/hughsk/image-loaded)
-[imagesloaded](https://github.com/desandro/imagesloaded) (Not compatible with Component/Duo)
+* [image-loaded](https://github.com/hughsk/image-loaded)
+* [imagesloaded](https://github.com/desandro/imagesloaded) (Not compatible with Component/Duo)
 
 The MIT License (MIT)
 
