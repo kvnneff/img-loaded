@@ -1,6 +1,11 @@
-var events = require('component/event');
-var toArray = require('ForbesLindesay/arrayify');
+var events = require('event');
+var toArray = require('arrayify');
 var blankImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
+
+/**
+ * Expose `loaded`
+ */
+module.exports = loaded;
 
 /**
  * Loop `collection` and bind `cb` to each image's onload event
@@ -14,12 +19,20 @@ function loaded(collection, cb) {
 
     collection = toArray(collection);
 
-    function bind(el) {
-        if (img.src && img.complete && img.naturalWidth !== undefined) return cb(null, true)
-        img.once('load', function () {
-            events.unbind(img, 'load', cb);
+    function bind(img) {
+        if (img.src && img.complete && img.naturalWidth !== undefined) return cb(null, img);
+        events.bind(img, 'load', function () {
+            setTimeout(function () {
+                events.unbind(img, 'load', function (e) {
+                    return cb(null, img);
+                });
+            }, 500);
         });
-        events.bind(img, 'load', cb);
+        events.bind(img, 'load', function (e) {
+            return cb(null, img);
+        });
+
+        // fix for cached images
         if (img.readyState || img.complete) {
             src = img.src
             img.src = blankImage

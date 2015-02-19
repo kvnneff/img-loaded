@@ -19,7 +19,7 @@ test:
 	@$(BIN)/duo-test -B build/test.js -c 'make build-test' browser
 
 test-sauce: build-test
-	@$(BIN)/duo-test -B build/test.js saucelabs -n 1.0.0 -i public -b \
+	@$(BIN)/duo-test -B build/test.js saucelabs -b \
 		ie:6..stable \
 		firefox:3..stable \
 		iphone:4.3..stable \
