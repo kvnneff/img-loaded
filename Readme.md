@@ -16,17 +16,24 @@ Using [duo](http://duojs.org/):
 var loaded = require('staygrimm/img-loaded');
 ```
 
+Using [npm](http://npmjs.com/):
+
+``` bash
+npm install img-loaded
+```
+
 ## Usage ##
 
 **loaded(image, callback)**
 
-`image` may be an element, css selector, node list or array.
+`image` may be an element, css selector, node list or array.  Note that if multiple images are
+passed to `loaded` then `callback` will be returned for each image.
 
 ``` javascript
-var loaded = require('img-loaded')
-var image = document.getElementById('hidden-image')
+var loaded = require('img-loaded');
+var images = '.hidden-image';
 
-loaded(image, function(err, img) {
+loaded(images, function(err, img) {
    // img is loaded!
 });
 ```

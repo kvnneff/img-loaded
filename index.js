@@ -1,4 +1,8 @@
-var events = require('event');
+try {
+    var events = require('event');
+} catch(e) {
+    var events = require('component-event');
+}
 var toArray = require('arrayify');
 var blankImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
 
@@ -20,7 +24,10 @@ function loaded(collection, cb) {
     collection = toArray(collection);
 
     function bind(img) {
+        // return immediately if image is already loaded
         if (img.src && img.complete && img.naturalWidth !== undefined) return cb(null, img);
+
+        // unbind once the image is loaded
         events.bind(img, 'load', function () {
             setTimeout(function () {
                 events.unbind(img, 'load', function (e) {
@@ -28,6 +35,7 @@ function loaded(collection, cb) {
                 });
             }, 500);
         });
+
         events.bind(img, 'load', function (e) {
             return cb(null, img);
         });
